@@ -1,0 +1,7 @@
+S2I builds in OpenShift - an example with Java and Maven
+https://tomd.xyz/articles/openshift-s2i-example/
+
+
+https://docs.openshift.com/container-platform/3.11/dev_guide/builds/index.html
+
+http://maven.fabric8.io/
