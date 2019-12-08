@@ -26,12 +26,36 @@
 <!--            <groupId>org.springframework.kafka</groupId>-->
 <!--            <artifactId>spring-kafka</artifactId>-->
 <!--        </dependency>-->
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-spring-boot-starter</artifactId>
+            <version>5.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-spring-boot-starter</artifactId>
+            <scope>compile</scope>
+            <version>5.0.2</version>
+        </dependency>
+        <dependency>
+            <!-- to embed GraphiQL tool -->
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphiql-spring-boot-starter</artifactId>
+            <scope>compile</scope>
+            <version>5.0.2</version>
+        </dependency>
+        <!-- to embed Voyager tool-->
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>voyager-spring-boot-starter</artifactId>
+            <scope>compile</scope>
+            <version>5.0.2</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -48,6 +72,14 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-kubernetes-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.kafka</groupId>-->

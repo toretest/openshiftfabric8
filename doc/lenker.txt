@@ -1,3 +1,10 @@
+https://github.com/toretest/openshiftfabric8
+
+oc new-build fabric8/s2i-https://github.com/toretest/openshiftfabric8 \
+    --name=my-demo-app \
+    --context-dir=s2i-java-app
+
+******************
 S2I builds in OpenShift - an example with Java and Maven
 https://tomd.xyz/articles/openshift-s2i-example/
 
@@ -5,3 +12,27 @@ https://tomd.xyz/articles/openshift-s2i-example/
 https://docs.openshift.com/container-platform/3.11/dev_guide/builds/index.html
 
 http://maven.fabric8.io/
+
+
+Eksempel
+ oc new-build fabric8/s2i-java~https://github.com/monodot/openshift-demos \
+>     --name=my-demo-app \
+>     --context-dir=s2i-java-app
+--> Found Docker image bfbe994 (2 months old) from Docker Hub for "fabric8/s2i-java"
+
+    Java Applications
+    -----------------
+    Platform for building and running plain Java applications (fat-jar and flat classpath)
+
+    Tags: builder, java
+
+    * An image stream tag will be created as "s2i-java:latest" that will track the source image
+    * A source build using source code from https://github.com/monodot/openshift-demos will be created
+      * The resulting image will be pushed to image stream tag "my-demo-app:latest"
+      * Every time "s2i-java:latest" changes a new build will be triggered
+
+--> Creating resources with label build=my-demo-app ...
+    imagestream.image.openshift.io "s2i-java" created
+    imagestream.image.openshift.io "my-demo-app" created
+    buildconfig.build.openshift.io "my-demo-app" created
+--> Success

@@ -25,3 +25,9 @@ curl localhost:8080/random
 ## example
 https://github.com/toretest/fmp-demo-project
 
+## diverse
+*https://www.baeldung.com/spring-boot-deploy-openshift
+
+*https://cloud.spring.io/spring-cloud-static/spring-cloud-kubernetes/1.1.0.RC2/reference/html/
+
+*https://access.redhat.com/documentation/en-us/red_hat_jboss_fuse/6.3/html/fuse_integration_services_2.0_for_openshift/kube-spring-boot

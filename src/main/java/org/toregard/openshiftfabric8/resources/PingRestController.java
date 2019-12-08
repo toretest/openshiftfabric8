@@ -25,4 +25,19 @@ public class PingRestController {
     public ResponseEntity<String> ping3() {
         return ResponseEntity.ok("hello3");
     }
+
+    @RequestMapping(value = "/ping4", produces = "application/json")
+    public ResponseEntity<String> ping4() {
+        return ResponseEntity.ok(String.format("Ping4 %s", UUID.randomUUID().toString()));
+    }
+
+    @RequestMapping(value = "/ping5", produces = "application/json")
+    public ResponseEntity<String> ping5() {
+        return ResponseEntity.ok(String.format("Ping5 %s", UUID.randomUUID().toString()));
+    }
+
+    @RequestMapping(value = "/ping6", produces = "application/json")
+    public ResponseEntity<String> ping6() {
+        return ResponseEntity.ok(String.format("Ping6 %s", UUID.randomUUID().toString()));
+    }
 }
