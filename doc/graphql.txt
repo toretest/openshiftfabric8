@@ -1,3 +1,23 @@
+**Def
+https://graphql.org/learn/schema/
+**kurs
 https://gitlab.com/butchclark
-
 https://www.udemy.com/course/graphql-with-spring-boot-foundation-1/learn/lecture/16270378#overview
+
+**kjøring
+http://localhost:8080/voyager
+http://localhost:8080/graphiql
+
+http://openshiftfabric8-myproject.127.0.0.1.nip.io/voyager
+D
+
+query
+{characters {id  name age}}
+{characterById(id: "Char1") {id name age}}
+
+Mutation
+mutation {addCharacter(name: "toregard", age: 44) {id name age} }
+
+#{groups {name}}
+
+{groupByName(name: "Bad Dudes") {name orientation}}

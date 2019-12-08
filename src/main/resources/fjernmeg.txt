@@ -1,0 +1,38 @@
+schema {
+  query: Queries
+}
+
+type Queries{
+  agreement: [Agreement]
+  agreementOffer: [AgreementOffer]
+}
+
+type Agreement{
+   id: String!
+   name: String!
+}
+
+type AgreementOffer{
+    agreementId: String!
+    productOffers: [ProductOffer!]!
+}
+
+type ProductOffer {
+    productOfferId: String!
+    name:String!
+    someValue: Int
+}
+
+
+schema {
+    query: Queries
+}
+
+type Queries{
+    employees: [Employee]
+}
+
+type Employee{
+    name: String!
+    yearsOfService: Int
+}

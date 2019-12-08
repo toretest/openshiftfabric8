@@ -40,4 +40,9 @@ public class PingRestController {
     public ResponseEntity<String> ping6() {
         return ResponseEntity.ok(String.format("Ping6 %s", UUID.randomUUID().toString()));
     }
+
+    @RequestMapping(value = "/ping7", produces = "application/json")
+    public ResponseEntity<String> ping7() {
+        return ResponseEntity.ok(String.format("Ping7 ThreadId %s",Long.toString(Thread.currentThread().getId()) ));
+    }
 }

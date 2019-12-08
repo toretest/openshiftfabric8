@@ -13,7 +13,12 @@ https://docs.openshift.com/container-platform/3.11/dev_guide/builds/index.html
 
 http://maven.fabric8.io/
 
+******************Deploy a Spring Boot Application to OpenShift
+https://www.baeldung.com/spring-boot-deploy-openshift
+oc adm policy --as system:admin add-cluster-role-to-user cluster-admin developer
 
+
+********************
 Eksempel
  oc new-build fabric8/s2i-java~https://github.com/monodot/openshift-demos \
 >     --name=my-demo-app \
@@ -36,3 +41,8 @@ Eksempel
     imagestream.image.openshift.io "my-demo-app" created
     buildconfig.build.openshift.io "my-demo-app" created
 --> Success
+
+openshift example deployments scripts
+https://piotrminkowski.com/2018/05/18/quick-guide-to-deploying-java-apps-on-openshift/
+
+https://github.com/piomin/sample-vertx-kubernetes/tree/openshift
