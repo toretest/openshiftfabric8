@@ -1,3 +1,36 @@
+type Query {
+    getAllAgreements : [Agreement]
+    getAgreement(id:String): Agreement
+    getAllAgreementOffers:[AgreementOffer]
+
+    characters: [SuperCharacter]!
+    characterById(id:String): SuperCharacter
+    groups: [SuperGroup]!
+    groupByName(name:String): SuperGroup
+}
+
+type Mutation {
+    addCharacter(name:String age:Int groupName:String): SuperCharacter
+    addGroup(name:String orientation: Orientation): SuperGroup
+}
+
+
+type Agreement{
+    id: String!
+    name: String!
+}
+
+type ProductOffer {
+    productOfferId: String!
+    name:String!
+    someValue: Int
+}
+
+type AgreementOffer{
+    agreementId: String!
+    productOffers: [ProductOffer!]!
+}
+
 type SuperCharacter {
     id: String!
     name: String!
@@ -17,15 +50,4 @@ enum Orientation{
     VILLAIN
 }
 
-type Query {
-    characters: [SuperCharacter]!
-    characterById(id:String): SuperCharacter
 
-    groups: [SuperGroup]!
-    groupByName(name:String): SuperGroup
-}
-
-type Mutation {
-    addCharacter(name:String age:Int groupName:String): SuperCharacter
-    addGroup(name:String orientation: Orientation): SuperGroup
-}

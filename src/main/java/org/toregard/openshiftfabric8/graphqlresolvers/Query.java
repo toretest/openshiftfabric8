@@ -1,22 +1,22 @@
-package org.toregard.openshiftfabric8.resolvers;
+package org.toregard.openshiftfabric8.graphqlresolvers;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import lombok.extern.slf4j.Slf4j;
 import org.toregard.openshiftfabric8.models.SuperCharacter;
-import org.toregard.openshiftfabric8.models.repos.SuperCharacterRepo;
+import org.toregard.openshiftfabric8.services.SuperCharacterService;
 import org.toregard.openshiftfabric8.models.SuperGroup;
-import org.toregard.openshiftfabric8.models.repos.SuperGroupRepo;
+import org.toregard.openshiftfabric8.services.SuperGroupService;
 
 import java.util.List;
 
 @Slf4j
 public class Query implements GraphQLQueryResolver {
 
-    private SuperCharacterRepo superCharacterRepo;
-    private SuperGroupRepo superGroupRepo;
+    private SuperCharacterService superCharacterRepo;
+    private SuperGroupService superGroupRepo;
 
-    public Query(SuperCharacterRepo repo,
-                 SuperGroupRepo grepo){
+    public Query(SuperCharacterService repo,
+                 SuperGroupService grepo){
         this.superCharacterRepo = repo;
         this.superGroupRepo = grepo;
     }

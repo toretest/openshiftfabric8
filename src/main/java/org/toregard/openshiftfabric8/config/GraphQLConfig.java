@@ -3,32 +3,48 @@ package org.toregard.openshiftfabric8.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.toregard.openshiftfabric8.models.repos.SuperCharacterRepo;
-import org.toregard.openshiftfabric8.models.repos.SuperGroupRepo;
-import org.toregard.openshiftfabric8.resolvers.Mutation;
-import org.toregard.openshiftfabric8.resolvers.Query;
+import org.toregard.openshiftfabric8.graphqlresolvers.AgreementQuery;
+import org.toregard.openshiftfabric8.graphqlresolvers.Query;
+import org.toregard.openshiftfabric8.services.AgreementOfferService;
+import org.toregard.openshiftfabric8.services.AgreementService;
+import org.toregard.openshiftfabric8.services.SuperCharacterService;
+import org.toregard.openshiftfabric8.services.SuperGroupService;
+import org.toregard.openshiftfabric8.graphqlresolvers.Mutation;
 
 @Configuration
 public class GraphQLConfig {
 
-    @Autowired
-    SuperCharacterRepo superCharacterRepo;
-    @Autowired
-    SuperGroupRepo superGroupRepo;
+    final
+    AgreementService agreementService;
+    final
+    AgreementOfferService agreementOfferService;
 
-//    public GraphQLConfig(SuperCharacterRepo superCharacterRepo, SuperGroupRepo superGroupRepo) {
-//        this.superCharacterRepo = superCharacterRepo;
-//        this.superGroupRepo = superGroupRepo;
-//    }
+    final
+    SuperCharacterService superCharacterService;
+    final
+    SuperGroupService superGroupService;
+
+    @Autowired
+    public GraphQLConfig(AgreementService agreementService, AgreementOfferService agreementOfferService, SuperCharacterService superCharacterService, SuperGroupService superGroupService) {
+        this.agreementService = agreementService;
+        this.agreementOfferService = agreementOfferService;
+        this.superCharacterService = superCharacterService;
+        this.superGroupService = superGroupService;
+    }
+
+    @Bean
+    public AgreementQuery agreementQuery() {
+        return new AgreementQuery(agreementService,agreementOfferService);
+    }
 
     @Bean
     public Query query() {
-        return new Query(superCharacterRepo, superGroupRepo);
+        return new Query(superCharacterService, superGroupService);
     }
 
     @Bean
     public Mutation mutation() {
-        return new Mutation(superCharacterRepo, superGroupRepo);
+        return new Mutation(superCharacterService, superGroupService);
     }
 
 }
