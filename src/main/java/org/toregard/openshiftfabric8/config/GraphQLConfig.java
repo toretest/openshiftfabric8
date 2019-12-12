@@ -5,29 +5,23 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.toregard.openshiftfabric8.graphqlresolvers.AgreementQuery;
 import org.toregard.openshiftfabric8.graphqlresolvers.Query;
-import org.toregard.openshiftfabric8.services.AgreementOfferService;
-import org.toregard.openshiftfabric8.services.AgreementService;
-import org.toregard.openshiftfabric8.services.SuperCharacterService;
-import org.toregard.openshiftfabric8.services.SuperGroupService;
+import org.toregard.openshiftfabric8.services.*;
 import org.toregard.openshiftfabric8.graphqlresolvers.Mutation;
 
 @Configuration
 public class GraphQLConfig {
 
-    final
-    AgreementService agreementService;
-    final
-    AgreementOfferService agreementOfferService;
-
-    final
-    SuperCharacterService superCharacterService;
-    final
-    SuperGroupService superGroupService;
+    final AgreementService agreementService;
+    final AgreementOfferService agreementOfferService;
+    final ProductOfferService productOfferService;
+    final SuperCharacterService superCharacterService;
+    final SuperGroupService superGroupService;
 
     @Autowired
-    public GraphQLConfig(AgreementService agreementService, AgreementOfferService agreementOfferService, SuperCharacterService superCharacterService, SuperGroupService superGroupService) {
+    public GraphQLConfig(AgreementService agreementService, AgreementOfferService agreementOfferService, ProductOfferService productOfferService, SuperCharacterService superCharacterService, SuperGroupService superGroupService) {
         this.agreementService = agreementService;
         this.agreementOfferService = agreementOfferService;
+        this.productOfferService = productOfferService;
         this.superCharacterService = superCharacterService;
         this.superGroupService = superGroupService;
     }

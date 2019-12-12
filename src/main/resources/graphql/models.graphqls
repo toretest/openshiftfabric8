@@ -1,6 +1,6 @@
 type Query {
     getAllAgreements : [Agreement]
-    getAgreement(id:String): Agreement
+    getAgreement(id:Int): Agreement
     getAllAgreementOffers:[AgreementOffer]
 
     characters: [SuperCharacter]!
@@ -16,19 +16,20 @@ type Mutation {
 
 
 type Agreement{
-    id: String!
+    agreementId: Int!
     name: String!
 }
 
 type ProductOffer {
-    productOfferId: String!
+    productOfferId: Int!
     name:String!
     someValue: Int
 }
 
 type AgreementOffer{
-    agreementId: String!
-    productOffers: [ProductOffer!]!
+    agreementOfferId: Int!
+    agreement: Agreement
+    productOffers: [ProductOffer]
 }
 
 type SuperCharacter {

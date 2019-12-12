@@ -8,6 +8,7 @@ import java.util.List;
 @Data
 @Builder
 public class AgreementOffer {
-    private String agreementId;
+    private Integer agreementOfferId;
+    private Agreement agreement;
     private List<ProductOffer> productOffers;
 }

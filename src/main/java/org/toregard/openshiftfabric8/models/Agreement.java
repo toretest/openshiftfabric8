@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 @Builder
 public class Agreement {
-   private String id;
+   private Integer agreementId;
    private String name;
 }

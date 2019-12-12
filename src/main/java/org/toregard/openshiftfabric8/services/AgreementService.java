@@ -3,12 +3,9 @@ package org.toregard.openshiftfabric8.services;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.toregard.openshiftfabric8.models.Agreement;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-@Service
 @Slf4j
 public class AgreementService {
     private List<Agreement> agreements = new ArrayList<>();
@@ -21,23 +18,22 @@ public class AgreementService {
         return agreements;
     }
 
-    public Agreement getAgreementbyId(String id) {
-        Optional<Agreement> agreementOptional = agreements.stream().findFirst();
-        return agreementOptional.isPresent() ? agreementOptional.get() : null;
+    public Agreement getAgreementbyId(Integer agreementId) {
+       return agreements.stream().filter(v -> v.getAgreementId().equals(agreementId)).findAny().orElse(null);
     }
 
 
     private void init() {
         for (int i = 1; i < 10; i++) {
-            String id = String.valueOf(i);
-            agreements.add(createAgreement(id, "agreement" + id));
+            Integer agreementId = Integer.valueOf(i);
+            agreements.add(createAgreement(agreementId, "agreement" + agreementId));
         }
 
     }
 
-    private Agreement createAgreement(String id, String name) {
+    private Agreement createAgreement(Integer agreementId, String name) {
         return Agreement.builder()
-                .id(id)
+                .agreementId(agreementId)
                 .name(name).build();
     }
 }
